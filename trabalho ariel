@@ -1,0 +1,95 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(ProfileApp());
+}
+
+class ProfileApp extends StatelessWidget {
+  // Dados do perfil
+  final String nome = "João da Silva";
+  final String endereco = "Rua das Flores, 123";
+  final String telefone = "(00) 1234-5678";
+  final String email = "joao@example.com";
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Meu Perfil',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: ProfileScreen(
+        nome: nome,
+        endereco: endereco,
+        telefone: telefone,
+        email: email,
+      ),
+    );
+  }
+}
+
+class ProfileScreen extends StatelessWidget {
+  final String nome;
+  final String endereco;
+  final String telefone;
+  final String email;
+
+  ProfileScreen({
+    required this.nome,
+    required this.endereco,
+    required this.telefone,
+    required this.email,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Meu Perfil'),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              'Nome:',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              nome,
+              style: TextStyle(fontSize: 16),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Endereço:',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              endereco,
+              style: TextStyle(fontSize: 16),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Telefone:',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              telefone,
+              style: TextStyle(fontSize: 16),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'E-mail:',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              email,
+              style: TextStyle(fontSize: 16),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
